@@ -8,11 +8,12 @@ let player = "player2";
 let computer = "player1";
 // let players = document.querySelectorAll(".player");
 
-let weapon = ["wearpon1", "weapon2", "weapon3"];
+let randomWeapon;
+let weapon = ["rock", "paper", "scissors"];
+
 
 let playerChose;
 let computerChose;
-
 
 function start() {
     console.log("Start");
@@ -43,7 +44,11 @@ function playersChoise() {
 function computersChoise() {
     console.log("Computers Choise");
 
-    computerChose = "paper";
+    randomWeapon = Math.floor(Math.random() * 2);
+    computerChose = weapon[randomWeapon];
+
+
+    // computerChose = "paper";
     console.log("Computers Choise " + computerChose);
 
     countdown();
