@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", start);
 // Variabler for spillere
 let player = "player2";
 let computer = "player1";
-let players = document.querySelectorAll(".player");
+// let players = document.querySelectorAll(".player");
 
 let weapon = ["wearpon1", "weapon2", "weapon3"];
 
@@ -25,41 +25,18 @@ function playersChoise() {
 
     document.querySelector("button.rock").addEventListener("click", () => {
         playerChose = "rock";
-        console.log("players choise: " + playerChose);
-        player2.classList.add("shake");
-      
-        player2.addEventListener("animationend", () => {
-            player2.className = "player"
-            player2.classList.add("rock");
-            computersChoise();// Kalder funktionen "computersChoise"
-        });
+        computersChoise();
     });
 
     document.querySelector("button.paper").addEventListener("click", () => {
         playerChose = "paper";
-        console.log(playerChose);
-        player2.classList.add("shake");
-       
-        player2.addEventListener("animationend", () => {
-            player2.className = "player"
-            player2.classList.add("paper");
-            computersChoise();// Kalder funktionen "computersChoise"
-        });
+        computersChoise();
     });
 
      document.querySelector("button.scissors").addEventListener("click", () => {
-        playerChose = "scissors";
-        console.log(playerChose);
-        player2.classList.add("shake");
-
-        player2.addEventListener("animationend", () => {
-            player2.className = "player"
-            player2.classList.add("scissors");
-            computersChoise();// Kalder funktionen "computersChoise"
-        });        
+        playerChose = "scissors";  
+        computersChoise();   
     }); 
-
-
 
 }
 
@@ -69,60 +46,72 @@ function computersChoise() {
     computerChose = "paper";
     console.log("Computers Choise " + computerChose);
 
+    countdown();
+}
+
+function countdown() {
+
+    console.log(playerChose);
+    console.log(computerChose);
+
+    player2.classList.add("shake");     
+    player1.classList.add("shake");     
+    
+    player2.addEventListener("animationend", () => {
+    player2.className = "player"
+    player2.classList.add(playerChose);
+    });
+
+    player1.addEventListener("animationend", () => {
+    player1.className = "player"
+    player1.classList.add(computerChose);
+    });
+
     determinWinner();
 }
 
 function determinWinner() {
     console.log("Determin winner")
 
-    if (computerChose === "paper" && playerChose === "paper") {
-        showTie();
-    }
+    player2.addEventListener("animationend", () => {
 
-    else if (computerChose == "paper" && playerChose == "scissors") {
-        showWinner();
-    }
+        if (computerChose == "paper" && playerChose == "paper") {
+            showTie();
+        }
 
-    else if (computerChose == "paper" && playerChose == "rock") {
-        showLooser();
-    }
+        else if (computerChose == "paper" && playerChose == "scissors") {
+            showWinner();
+        }
 
-    else if (computerChose == "rock" && playerChose == "rock") {
-        showTie();
-    }
+        else if (computerChose == "paper" && playerChose == "rock") {
+            showLooser();
+        }  
 
-    else if (computerChose == "rock" && playerChose == "paper") {
-        showWinner();
-    }
+        else if (computerChose == "rock" && playerChose == "rock") {
+           showTie();
+        }
 
-    else if (computerChose == "rock" && playerChose == "scissors") {
-        showLooser();
-    }
+        else if (computerChose == "rock" && playerChose == "paper") {
+            showWinner();
+        }
 
-    else if (computerChose == "scissors" && playerChose == "scissors") {
-        showTie();
-    }
+        else if (computerChose == "rock" && playerChose == "scissors") {
+            showLooser();
+        }
 
-    else if (computerChose == "scissors" && playerChose == "rock") {
-        showWinner();
-    }
+        else if (computerChose == "scissors" && playerChose == "scissors") {
+            showTie();
+        }
 
-    else {
-        showLooser();
-    }
+        else if (computerChose == "scissors" && playerChose == "rock") {
+            showWinner();
+        }
 
-    // if (winner === "computer") {
-    //     showLooser();
-    // }
-
-    // else if (winner === "player") {
-    //     showWinner();
-    // }
-
-    // else {
-    //     showTie();
-    // }
-} 
+        else {
+            showLooser();
+        }
+    });
+};
 
 function showWinner() {
     console.log("Show winner");
