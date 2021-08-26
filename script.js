@@ -11,7 +11,6 @@ let computer = "player1";
 let randomWeapon;
 let weapon = ["rock", "paper", "scissors"];
 
-
 let playerChose;
 let computerChose;
 
@@ -46,7 +45,6 @@ function computersChoise() {
 
     randomWeapon = Math.floor(Math.random() * 2);
     computerChose = weapon[randomWeapon];
-
 
     // computerChose = "paper";
     console.log("Computers Choise " + computerChose);
@@ -121,14 +119,23 @@ function determinWinner() {
 function showWinner() {
     console.log("Show winner");
     document.querySelector("#win").classList.remove("hidden");
+    setTimeout(function(){
+        document.querySelector("#win").classList.add("hidden");
+    }, 1500);
 }
 
 function showLooser() {
     console.log("Show looser");
     document.querySelector("#lose").classList.remove("hidden");
+    setTimeout(function(){
+        document.querySelector("#loose").classList.add("hidden");
+    }, 1500);
 }
 
 function showTie() {
     console.log("It's a tie");
     document.querySelector("#draw").classList.remove("hidden");
+    setTimeout(function(){
+        document.querySelector("#draw").classList.add("hidden");
+    }, 1500);
 }
