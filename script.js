@@ -25,12 +25,13 @@ function playersChoise() {
 
     document.querySelector("button.rock").addEventListener("click", () => {
         playerChose = "rock";
-        console.log(playerChose);
+        console.log("players choise: " + playerChose);
         player2.classList.add("shake");
       
         player2.addEventListener("animationend", () => {
             player2.className = "player"
             player2.classList.add("rock");
+            computersChoise();// Kalder funktionen "computersChoise"
         });
     });
 
@@ -42,6 +43,7 @@ function playersChoise() {
         player2.addEventListener("animationend", () => {
             player2.className = "player"
             player2.classList.add("paper");
+            computersChoise();// Kalder funktionen "computersChoise"
         });
     });
 
@@ -53,18 +55,19 @@ function playersChoise() {
         player2.addEventListener("animationend", () => {
             player2.className = "player"
             player2.classList.add("scissors");
+            computersChoise();// Kalder funktionen "computersChoise"
         });        
     }); 
 
 
-    computersChoise();// Kalder funktionen "computersChoise"
+
 }
 
 function computersChoise() {
     console.log("Computers Choise");
 
     computerChose = "paper";
-    console.log(computerChose);
+    console.log("Computers Choise " + computerChose);
 
     determinWinner();
 }
@@ -72,41 +75,41 @@ function computersChoise() {
 function determinWinner() {
     console.log("Determin winner")
 
-    // if (computerChose == "paper" && playerChose == "paper") {
-    //     showTie();
-    // }
+    if (computerChose === "paper" && playerChose === "paper") {
+        showTie();
+    }
 
-    // else if (computerChose == "paper" && playerChose == "scissors") {
-    //     showWinner();
-    // }
+    else if (computerChose == "paper" && playerChose == "scissors") {
+        showWinner();
+    }
 
-    // else if (computerChose == "paper" && playerChose == "rock") {
-    //     showLooser();
-    // }
+    else if (computerChose == "paper" && playerChose == "rock") {
+        showLooser();
+    }
 
-    // else if (computerChose == "rock" && playerChose == "rock") {
-    //     showTie();
-    // }
+    else if (computerChose == "rock" && playerChose == "rock") {
+        showTie();
+    }
 
-    // else if (computerChose == "rock" && playerChose == "paper") {
-    //     showWinner();
-    // }
+    else if (computerChose == "rock" && playerChose == "paper") {
+        showWinner();
+    }
 
-    // else if (computerChose == "rock" && playerChose == "scissors") {
-    //     showLooser();
-    // }
+    else if (computerChose == "rock" && playerChose == "scissors") {
+        showLooser();
+    }
 
-    // else if (computerChose == "scissors" && playerChose == "scissors") {
-    //     showTie();
-    // }
+    else if (computerChose == "scissors" && playerChose == "scissors") {
+        showTie();
+    }
 
-    // else if (computerChose == "scissors" && playerChose == "rock") {
-    //     showWinner();
-    // }
+    else if (computerChose == "scissors" && playerChose == "rock") {
+        showWinner();
+    }
 
-    // else {
-    //     showLooser();
-    // }
+    else {
+        showLooser();
+    }
 
     // if (winner === "computer") {
     //     showLooser();
@@ -119,7 +122,7 @@ function determinWinner() {
     // else {
     //     showTie();
     // }
-}
+} 
 
 function showWinner() {
     console.log("Show winner");
